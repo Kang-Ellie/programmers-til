@@ -17,6 +17,7 @@
 | 기간 | 주차 | 학습 주제 | 핵심 내용 & 링크 |
 |:---:|:---:|:---|:---|
 | 2025.12.30 | Week 1 | **포트폴리오 / 협업 환경 구성(1)** | - 프로젝트 관리, 리드미 작성법 <br/> - [버전 관리 및 마크다운 사용법](https://ellie-programming-world.tistory.com/entry/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%82%AC%EC%9A%A9%EB%B2%95) |
+| 2025.12.31 | Week 1 | **Git 버전 관리 및 CLI/GUI** | - Git(분산 버전 관리) vs GitHub, CLI/GUI <br/> - 필수 명령어, [**Issue**: Mac .DS_Store 트러블슈팅 및 설정](https://ellie-programming-world.tistory.com/entry/1%EC%A3%BC%EC%B0%A8-03-Git-Mac-DSStore-%EC%82%AD%EC%A0%9C-%EB%B0%8F-gitignore-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95) |
 
 <br/>
 
