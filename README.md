@@ -20,6 +20,9 @@
 | 2025.12.31 | Week 1 | **Git 버전 관리 및 CLI/GUI** | - Git(분산 버전 관리) vs GitHub, CLI/GUI <br/> - 필수 명령어, [**Issue**: Mac .DS_Store 트러블슈팅 및 설정](https://ellie-programming-world.tistory.com/entry/1%EC%A3%BC%EC%B0%A8-03-Git-Mac-DSStore-%EC%82%AD%EC%A0%9C-%EB%B0%8F-gitignore-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95) |
 | 2026.01.05 | Week 1 | **GitHub Remote & Clone** | - [GitHub 원격 저장소 연결 및 토큰 설정] <br/> - [Clone(CLI/GUI) 및 연결 에러 해결] <br/> - 브랜치(Branch)의 개념과 생성 |
 | 2026.01.06 | Week 1 | **Git Collaboration** | - [브랜치 전략 (Fast-forward vs 3-way)] <br/> - [PR(Pull Request), merge와 충돌 해결(Conflict)] <br/> - [📂 **GitHub 실습 저장소 (Programmers-Practice)**](https://github.com/Kang-Ellie/Programmers-Practice) |
+| 2026.01.07 | Week 1 | **협업 Tools** | - [협업 툴 비교 및 특징 (Jira vs Trello vs Notion)](https://ellie-programming-world.tistory.com/entry/1%EC%A3%BC%EC%B0%A8-06-%ED%98%91%EC%97%85-Tool-%EB%B3%84-%ED%8A%B9%EC%A7%95-%EC%A0%95%EB%A6%AC) |
+
+
 
 <br/>
 
