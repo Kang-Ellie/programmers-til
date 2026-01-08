@@ -18,9 +18,10 @@
 |:---:|:---:|:---|:---|
 | 2025.12.30 | Week 1 | **리드미 & 버전 관리** | - 프로젝트 관리, 리드미 작성법 <br/> - [버전 관리 및 마크다운 사용법](https://ellie-programming-world.tistory.com/entry/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%82%AC%EC%9A%A9%EB%B2%95) |
 | 2025.12.31 | Week 1 | **Git 버전 관리 및 CLI/GUI** | - Git(분산 버전 관리) vs GitHub, CLI/GUI <br/> - 필수 명령어, [**Issue**: Mac .DS_Store 트러블슈팅 및 설정](https://ellie-programming-world.tistory.com/entry/1%EC%A3%BC%EC%B0%A8-03-Git-Mac-DSStore-%EC%82%AD%EC%A0%9C-%EB%B0%8F-gitignore-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95) |
-| 2026.01.05 | Week 1 | **GitHub Remote & Clone** | - [GitHub 원격 저장소 연결 및 토큰 설정] <br/> - [Clone(CLI/GUI) 및 연결 에러 해결] <br/> - 브랜치(Branch)의 개념과 생성 |
-| 2026.01.06 | Week 1 | **Git Collaboration** | - [브랜치 전략 (Fast-forward vs 3-way)] <br/> - [PR(Pull Request), merge와 충돌 해결(Conflict)] <br/> - [📂 **GitHub 실습 저장소 (Programmers-Practice)**](https://github.com/Kang-Ellie/Programmers-Practice) |
+| 2026.01.05 | Week 1 | **GitHub Remote & Clone** | - GitHub 원격 저장소 연결 및 토큰 설정 <br/> - Clone(CLI/GUI) 및 연결 에러 해결 <br/> - 브랜치(Branch)의 개념과 생성 |
+| 2026.01.06 | Week 1 | **Git Collaboration** | - 브랜치 전략 (Fast-forward vs 3-way) <br/> - PR(Pull Request), merge와 충돌 해결(Conflict) <br/> - [📂 **GitHub 실습 저장소 (Programmers-Practice)**](https://github.com/Kang-Ellie/Programmers-Practice) |
 | 2026.01.07 | Week 1 | **협업 Tools** | - [협업 툴 비교 및 특징 (Jira vs Trello vs Notion)](https://ellie-programming-world.tistory.com/entry/1%EC%A3%BC%EC%B0%A8-06-%ED%98%91%EC%97%85-Tool-%EB%B3%84-%ED%8A%B9%EC%A7%95-%EC%A0%95%EB%A6%AC) |
+| 2026.01.08 | Week 1 | **Web & HTML Basic** | - 웹의 동작 원리 (Client & Server) <br/> - [프론트엔드 vs 백엔드 직무 이해](https://ellie-programming-world.tistory.com/entry/1%EC%A3%BC%EC%B0%A8-07-%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-vs-%EB%B0%B1%EC%97%94%EB%93%9C-vs-%ED%92%80%EC%8A%A4%ED%83%9D) <br/> - HTML 기초 문법과 태그, 간단 로그인 화면 실습 |
 
 
 
