@@ -23,6 +23,7 @@
 | 2026.01.07 | Week 1 | **협업 Tools** | - [협업 툴 비교 및 특징 (Jira vs Trello vs Notion)](https://ellie-programming-world.tistory.com/entry/1%EC%A3%BC%EC%B0%A8-06-%ED%98%91%EC%97%85-Tool-%EB%B3%84-%ED%8A%B9%EC%A7%95-%EC%A0%95%EB%A6%AC) |
 | 2026.01.08 | Week 1 | **Web & HTML Basic** | - 웹의 동작 원리 (Client & Server) <br/> - [프론트엔드 vs 백엔드 직무 이해](https://ellie-programming-world.tistory.com/entry/1%EC%A3%BC%EC%B0%A8-07-%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-vs-%EB%B0%B1%EC%97%94%EB%93%9C-vs-%ED%92%80%EC%8A%A4%ED%83%9D) <br/> - HTML 기초 문법과 태그, 간단 로그인 화면 실습 |
 | 2026.01.09 | Week 1 | **Web Frontend Basics** | - CSS 적용(Inline/Internal/External) 및 선택자 <br/> - JS 기초: 함수, 조건문, 변수 <br/> - 로그인 UI 구현 및 유효성 검사 실습 |
+| 2026.01.12 | Week 2 | [🎾 Tennis Market UI & Node.js Basic](https://github.com/Kang-Ellie/programmers-til/tree/main/TennisMarket) | - **Tennis Market UI**: 메인(Grid) 및 주문내역(Table) 구현 <br/> - **Node.js 기초**: http 모듈 서버 생성, 상태코드(200/404) <br/> - **모듈화 & 라우팅**: Server/Router/Handler 구조 분리 실습 |
 
 
 
@@ -47,3 +48,4 @@
 | ♻️ | Refactor | 코드 리팩토링 |
 | ✅ | Test | 테스트 코드 추가/수정 |
 | 🚀 | Deploy | 배포 관련 |
+| ⚙️ | Chore | 빌드 업무 수정, 패키지 매니저 설정 등 (프로덕션 코드 변경 X) |
