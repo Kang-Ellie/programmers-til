@@ -1,26 +1,20 @@
-import express from "express";
+import express from "express"; // express 모듈
+import conn from "../mariadb.js"; // db 모듈
+import { StatusCodes } from "http-status-codes"; // status code 모듈
+import {
+  join,
+  login,
+  passwordResetrequest,
+  passwordReset,
+} from "../controller/UserController.js";
+
 const router = express.Router();
 
 router.use(express.json());
 
-// 회원가입
-router.post("/join", (req, res) => {
-  res.json("회원가입");
-});
-
-// 로그인
-router.post("/login", (req, res) => {
-  res.json("로그인");
-});
-
-// 비밀번호 초기화 요청
-router.post("/reset", (req, res) => {
-  res.json("비밀번호 초기화 요청");
-});
-
-// 비밀번호 초기화
-router.put("/reset", (req, res) => {
-  res.json("비밀번호 초기화");
-});
+router.post("/join", join); // 회원가입
+router.post("/login", login); // 로그인
+router.post("/reset", passwordResetrequest); // 비밀번호 초기화 요청
+router.put("/reset", passwordReset); // 비밀번호 초기화
 
 export default router;

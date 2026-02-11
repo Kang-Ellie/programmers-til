@@ -9,6 +9,7 @@ import cartRouter from "./routes/carts.js";
 import orderRouter from "./routes/orders.js";
 
 const app = express();
+const PORT = process.env.PORT || 9999;
 dotenv.config();
 
 app.use("/users", userRouter);
@@ -18,4 +19,6 @@ app.use("/carts", cartRouter);
 app.use("/orders", orderRouter);
 
 // dotenv 모듈
-app.listen(process.env.PORT);
+app.listen(PORT, () => {
+  console.log("서버 실행 중 👉 http://localhost:9999");
+});
