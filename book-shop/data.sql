@@ -69,3 +69,11 @@ INSERT INTO `Bookshop`.`orderedBook` (`order_id`, `book_id`, `quantity`) VALUES 
 INSERT INTO `Bookshop`.`orderedBook` (`order_id`, `book_id`, `quantity`) VALUES (order_id, 3, 2);
 
 SELECT max(id) FROM Bookshop.orderedBook;
+
+// 결제된 도서 장바구니 삭제
+DELETE FROM cartItems WHERE id IN (1,2,3);
+
+// 주문 목록 조회
+SELECT orders.id, book_title, total_quantity, total_price, created_at, address, reveiver, contact
+FROM Bookshop.orders LEFT JOIN delivery 
+ON orders.delivery_id = delivery.id;
