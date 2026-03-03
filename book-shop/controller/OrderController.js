@@ -1,60 +1,92 @@
-import conn from "../mariadb.js"; // db 모듈
+// import conn from "../mariadb.js"; // db 모듈
+import mysql from "mysql2/promise";
 import { StatusCodes } from "http-status-codes"; // status code 모듈
 
-const order = (req, res) => {
+const order = async (req, res) => {
+  const connection = await mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "root",
+    database: "Bookshop",
+    dateStrings: true,
+  });
+
   const { items, delivery, totalQuantity, totalPrice, userId, firstBookTitle } =
     req.body;
 
-  let delivery_id = 3;
-  let order_id = 2;
-
+  // delivery 테이블 삽입
   let sql = `INSERT INTO delivery (address, reveiver, contact) VALUES (?, ?, ?)`;
   let values = [delivery.address, delivery.receiver, delivery.contact];
-  // conn.query(sql, values, (err, results) => {
-  //   if (err) {
-  //     console.log(err);
-  //     return res.status(StatusCodes.BAD_REQUEST).end();
-  //   }
+  let [results] = await connection.execute(sql, values);
+  let delivery_id = results.insertId;
 
-  //   delivery_id = results.insertId;
-
-  //   return res.status(StatusCodes.OK).json(results);
-  // });
-
-  sql = `INSERT INTO orders (book_title, total_quantity, total_price, user_id, delivery_id) 
+  // orders 테이블 삽입
+  sql = `INSERT INTO orders (book_title, total_quantity, total_price, user_id, delivery_id)
           VALUES (?, ?, ?, ?, ?)`;
   values = [firstBookTitle, totalQuantity, totalPrice, userId, delivery_id];
-  // conn.query(sql, values, (err, results) => {
-  //   if (err) {
-  //     console.log(err);
-  //     return res.status(StatusCodes.BAD_REQUEST).end();
-  //   }
+  [results] = await connection.execute(sql, values);
+  let order_id = results.insertId;
 
-  //   order_id = results.insertId;
-  //   console.log(order_id);
+  // items를 가지고, 장바구니에서 book_id, quantity 조회
+  sql = `SELECT book_id, quantity FROM cartItems WHERE id IN (?)`;
+  let [orderItems, fields] = await connection.query(sql, [items]);
 
-  //   return res.status(StatusCodes.OK).json(results);
-  // });
-
+  // orderedBook 테이블 삽입
   sql = `INSERT INTO orderedBook (order_id, book_id, quantity) VALUES ?`;
+
+  // Items.. 배열 : 요소들을 하나씩 꺼내서 (foreach문 돌려서)
   values = [];
-  items.forEach((item) => values.push([order_id, item.book_id, item.quantity]));
-  conn.query(sql, [values], (err, results) => {
-    if (err) {
-      console.log(err);
-      return res.status(StatusCodes.BAD_REQUEST).end();
-    }
-
-    return res.status(StatusCodes.OK).json(results);
+  orderItems.forEach((item) => {
+    values.push([order_id, item.book_id, item.quantity]);
   });
+
+  results = await connection.query(sql, [values]);
+
+  let result = await deleteCartItems(connection, items);
+
+  return res.status(StatusCodes.OK).json(result);
 };
 
-const getOrders = (req, res) => {
-  res.json("주문 목록 조회");
+const deleteCartItems = async (connection, items) => {
+  let sql = "DELETE FROM cartItems WHERE id IN (?)";
+
+  let result = await connection.query(sql, [items]);
+  return result;
 };
 
-const getOrderDetail = (req, res) => {
-  res.json("주문 상세 상품 조회");
+const getOrders = async (req, res) => {
+  const connection = await mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "root",
+    database: "Bookshop",
+    dateStrings: true,
+  });
+
+  let sql = `SELECT orders.id, created_at, address, reveiver, contact, book_title, total_quantity, total_price
+          FROM Bookshop.orders LEFT JOIN delivery 
+          ON orders.delivery_id = delivery.id;`;
+  let [rows, fields] = await connection.query(sql);
+  return res.status(StatusCodes.OK).json(rows);
+};
+
+const getOrderDetail = async (req, res) => {
+  const { id } = req.params;
+
+  const connection = await mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "root",
+    database: "Bookshop",
+    dateStrings: true,
+  });
+
+  let sql = `SELECT book_id, title, author, price, quantity
+          FROM Bookshop.orderedBook LEFT JOIN books 
+          ON orderedBook.book_id = books.id
+          WHERE order_id = ?`;
+  let [rows, fields] = await connection.query(sql, [id]);
+  return res.status(StatusCodes.OK).json(rows);
 };
 
 export { order, getOrders, getOrderDetail };
