@@ -49,11 +49,12 @@ const login = (req, res) => {
       // 토큰 발행
       const token = jwt.sign(
         {
+          id: loginUser.id,
           email: loginUser.email,
         },
         process.env.PRIVATE_KEY,
         {
-          expiresIn: "5m", // 유효시간
+          expiresIn: "1m", // 유효시간
           issuer: "youngah", // 발행한 사람
         },
       );
