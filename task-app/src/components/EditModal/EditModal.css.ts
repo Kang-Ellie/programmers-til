@@ -21,7 +21,7 @@ export const modalWindow = style({
   overflowY: "auto",
   backgroundColor: vars.color.mainDarker,
   opacity: 0.95,
-  borderRadius: 14,
+  borderRadius: "14px",
   padding: 20,
   boxShadow: vars.shadow.basic,
   color: vars.color.brightText,
