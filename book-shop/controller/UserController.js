@@ -23,7 +23,11 @@ const join = (req, res) => {
       return res.status(StatusCodes.BAD_REQUEST).end();
     }
 
-    return res.status(StatusCodes.CREATED).json(results);
+    if (results.affectedRows) {
+      return res.status(StatusCodes.CREATED).json(results);
+    } else {
+      return res.status(StatusCodes.BAD_REQUEST).end();
+    }
   });
 };
 
@@ -54,7 +58,7 @@ const login = (req, res) => {
         },
         process.env.PRIVATE_KEY,
         {
-          expiresIn: "1m", // 유효시간
+          expiresIn: "3m", // 유효시간
           issuer: "youngah", // 발행한 사람
         },
       );

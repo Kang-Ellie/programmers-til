@@ -1,8 +1,7 @@
+import ensureAuthorization from "../auth.js"; // 인증 모듈
 import jwt from "jsonwebtoken"; // jwt 모듈 소환
 import conn from "../mariadb.js"; // db 모듈
 import { StatusCodes } from "http-status-codes"; // status code 모듈
-import dotenv from "dotenv";
-dotenv.config();
 
 const addLike = (req, res) => {
   const book_id = req.params.id;
@@ -57,22 +56,5 @@ const removeLike = (req, res) => {
     });
   }
 };
-
-function ensureAuthorization(req, res) {
-  try {
-    let receivedJwt = req.headers["authorization"];
-    console.log("received jwt : ", receivedJwt);
-
-    let decodedJwt = jwt.verify(receivedJwt, process.env.PRIVATE_KEY);
-    console.log("decodedJwt jwt : ", decodedJwt);
-
-    return decodedJwt;
-  } catch (err) {
-    console.log(err.name);
-    console.log(err.message);
-
-    return err;
-  }
-}
 
 export { addLike, removeLike };
