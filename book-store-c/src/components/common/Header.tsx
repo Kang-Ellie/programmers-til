@@ -1,34 +1,17 @@
 import React, { type FC } from "react";
 import { styled } from "styled-components";
 import type { IconBaseProps } from "react-icons/lib/iconBase";
-import ThemeSwitcher from "../header/ThemeSwitcher";
 import logo from "../../assets/images/logo.png";
 import { FaSignInAlt, FaRegUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useCategory } from "../../hooks/useCategory";
 
 const SignInIcon = FaSignInAlt as FC<IconBaseProps>;
 const UserOutlineIcon = FaRegUser as FC<IconBaseProps>;
 
-const CATEGORY = [
-  {
-    id: null,
-    name: "전체",
-  },
-  {
-    id: 0,
-    name: "동화",
-  },
-  {
-    id: 1,
-    name: "소설",
-  },
-  {
-    id: 2,
-    name: "사회",
-  },
-];
-
 function Header() {
+  const { category } = useCategory();
+
   return (
     <HeaderStyle>
       <h1 className="logo">
@@ -38,14 +21,16 @@ function Header() {
       </h1>
       <nav className="category">
         <ul>
-          {CATEGORY.map((item) => (
-            <li key={item.id}>
+          {category.map((item) => (
+            <li key={item.category_id}>
               <Link
                 to={
-                  item.id === null ? "/books" : `/books?category_id=${item.id}`
+                  item.category_id === null
+                    ? "/books"
+                    : `/books?category_id=${item.category_id}`
                 }
               >
-                {item.name}
+                {item.category_name}
               </Link>
             </li>
           ))}
