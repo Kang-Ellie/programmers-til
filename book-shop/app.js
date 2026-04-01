@@ -1,6 +1,7 @@
 // express 모듈
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 
 import userRouter from "./routes/users.js";
 import bookRouter from "./routes/books.js";
@@ -13,6 +14,15 @@ const app = express();
 
 const PORT = process.env.PORT || 9999;
 dotenv.config();
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  }),
+);
+
+app.use(express.json());
 
 app.use("/users", userRouter);
 app.use("/books", bookRouter);
