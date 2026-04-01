@@ -45,7 +45,7 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/login">
+            <Link to="/signup">
               <UserOutlineIcon />
               회원가입
             </Link>
