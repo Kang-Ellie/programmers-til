@@ -4,6 +4,7 @@ import type { IconBaseProps } from "react-icons/lib/iconBase";
 import ThemeSwitcher from "../header/ThemeSwitcher";
 import logo from "../../assets/images/logo.png";
 import { FaSignInAlt, FaRegUser } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const SignInIcon = FaSignInAlt as FC<IconBaseProps>;
 const UserOutlineIcon = FaRegUser as FC<IconBaseProps>;
@@ -31,19 +32,21 @@ function Header() {
   return (
     <HeaderStyle>
       <h1 className="logo">
-        <img src={logo} alt="i book store" />
+        <Link to="/">
+          <img src={logo} alt="i book store" />
+        </Link>
       </h1>
       <nav className="category">
         <ul>
           {CATEGORY.map((item) => (
             <li key={item.id}>
-              <a
-                href={
+              <Link
+                to={
                   item.id === null ? "/books" : `/books?category_id=${item.id}`
                 }
               >
                 {item.name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -51,16 +54,16 @@ function Header() {
       <nav className="auth">
         <ul>
           <li>
-            <a href="/login">
+            <Link to="/login">
               <SignInIcon />
               로그인
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/login">
+            <Link to="/login">
               <UserOutlineIcon />
               회원가입
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
