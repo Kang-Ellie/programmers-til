@@ -120,7 +120,7 @@ const HeaderStyle = styled.header`
           font-weight: 600;
           text-decoration: none;
           display: flex;
-          align-item: center;
+          align-items: center;
           line-height: 1;
           background: none;
           border: 0;
