@@ -58,7 +58,7 @@ const login = (req, res) => {
         },
         process.env.PRIVATE_KEY,
         {
-          expiresIn: "3m", // 유효시간
+          expiresIn: "10000000m", // 유효시간
           issuer: "youngah", // 발행한 사람
         },
       );
@@ -69,7 +69,7 @@ const login = (req, res) => {
       });
       console.log(token);
 
-      return res.status(StatusCodes.OK).json(results);
+      return res.status(StatusCodes.OK).json({ ...results[0], token: token });
     } else {
       res.status(StatusCodes.UNAUTHORIZED).end();
     }
